@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wuthering Waves</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+
+
+
+<!-- This Output is just for fun i just seen some cool stuff on tiktok and youtube and decided to try it and then here is the result of it -->
+
+  <!-- CSS code for design-->
+  <style>
+
+
+   /* This is for my sidebar navigation */
+    .sidebar {
+      width: 4.5rem;
+      transition: width 0.3s ease;
+    }
+
+    .sidebar:hover {
+      width: 20rem;
+    }
+
+    .sidebar span {
+      white-space: nowrap;
+    }
+
+    .sidebar::before {
+      content: "";
+      background-image: url('Wuwa6.jpg');
+      background-size: cover;
+      background-position: center;
+      position: absolute;
+      inset: 0;
+      opacity: 0.15;
+      z-index: 0;
+      border-radius: 0 0.5rem 0.5rem 0;
+    }
+
+
+
+
+
+
+
+    /* This is the Character gallery container */
+    .container {
+      display: flex;
+      gap: 10px;
+      width: 90%;
+      max-width: 1100px;
+      height: 400px;
+      margin: 2rem auto;
+    }
+
+
+
+
+
+    /* This is where the characters are at */
+    .img {
+      position: relative;
+      flex: 1;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.7) saturate(0.2) contrast(1) blur(2px);
+      border-radius: 20px;
+      transition: flex 0.3s, filter 0.3s;
+      overflow: hidden;
+      box-shadow: rgba(0, 0, 0, 0.493) 0px 25px 50px -12px;
+      border: 1px solid #8b9da9;
+    }
+
+
+    /* This will flex the characters like an animation or something but just flex yeahhhhhh */
+    .img:hover {
+      flex: 1.5;
+      filter: none;
+    }
+
+
+    /* This is the styling of the names of the character where it transforms when a character is clicked */
+    .img span {
+      display: block;
+      width: 90%;
+      padding: 0.5rem;
+      font-size: clamp(0.75rem, 2.5vw, 1.25rem);
+      text-align: center;
+      color: #ffffff;
+      letter-spacing: 1px;
+      font-weight: bold;
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: all 0.2s ease;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+      word-break: break-word;
+    }
+
+
+    /* If this code is removed then so the characters names so dont u dare okeh?*/
+    .img:hover span {
+      bottom: 20px;
+    }
+
+
+    /* These are the 4 first characters from wuwa is shown*/
+    .img1 { background-image: url("Shorekeeper.png"); }
+    .img2 { background-image: url("Cantarella.png"); }
+    .img3 { background-image: url("Jinhsi.png"); }
+    .img4 { background-image: url("Cartethyia.png"); }
+
+
+
+    /* This is the hidden gallery is where it shows wuwa more characters */
+    .hidden-gallery {
+      display: none;
+      flex-wrap: wrap;
+      gap: 10px;
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+      border-radius: 1rem;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .hidden-gallery.active {
+      display: flex;
+    }
+
+
+
+    /* This is for the responsive style or small screens  */
+    @media (max-width: 640px) {
+      .container {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .img {
+        height: 200px;
+        flex: unset;
+      }
+
+      .img:hover {
+        flex: unset;
+        filter: none;
+      }
+
+      .img span {
+        bottom: 10px;
+      }
+    }
+
+
+
+    /* This is the Page Background  */
+    body::before {
+  content: "";
+  background-image: url('Wuwabg5.jpg');
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1; /* Adjust for more/less visibility */
+  z-index: -1; /* Puts it behind everything */
+  pointer-events: none; /* Makes sure it's not clickable */
+}
+
+    
+  </style>
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body class="bg-gray-900 text-white font-sans">
+
+  <!-- Sidebar -->
+  <aside class="fixed top-0 left-0 h-full bg-slate-800 sidebar overflow-y-auto z-50 group">
+    <nav class="flex flex-col items-start space-y-6 p-4 text-base relative z-10">
+      <a href="#" class="flex items-center space-x-3 hover:bg-slate-700 p-2 rounded w-full">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M3 12l9-9 9 9M4 10v10h16V10" />
+        </svg>
+        <span class="opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300">Home</span>
+      </a>
+
+<a href="second.html" class="flex items-center space-x-3 hover:bg-slate-700 p-2 rounded w-full">
+  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path d="M8 7V3M16 7V3M3 11h18M5 5h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" />
+  </svg>
+  <span class="opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300">Events</span>
+</a>
+
+
+      <section class="w-full px-2 transition duration-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible">
+        <h2 class="text-sm font-semibold text-indigo-300 mb-2">Beginner's Privilege</h2>
+        <img src="Wuwa4.jpg" alt="Wuthering Waves" class="w-full h-auto rounded-lg shadow-lg object-cover">
+      </section>
+
+      <section class="w-full px-2 transition duration-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible">
+        <article class="bg-gray-700 p-3 rounded-lg shadow">
+          <h2 class="text-sm font-semibold text-indigo-300 mb-2">Story Quests</h2>
+          <video src="Wuwa3.mp4" autoplay muted loop playsinline class="w-full h-auto rounded-lg object-cover"></video>
+        </article>
+      </section>
+
+      <section class="w-full px-2 transition duration-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible">
+        <article class="bg-gray-700 p-3 rounded-lg shadow">
+          <h2 class="text-sm font-semibold text-indigo-300 mb-2">New Banner</h2>
+          <video src="Wuwa2.mp4" autoplay muted loop playsinline class="w-full h-auto rounded-lg object-cover"></video>
+        </article>
+      </section>
+    </nav>
+  </aside>
+
+  <!-- Main Content it's in the top part -->
+  <div class="ml-20 md:ml-48 transition-all duration-300">
+<header class="bg-gray-10000 px-4 py-4 shadow md:px-6">
+  <div class="flex flex-col sm:flex-row justify-between items-center gap-4 max-w-7x1 mx-auto">
+
+
+      <!-- Hidden Download Image Container -->
+      <section id="downloadImageContainer" class="hidden w-full flex justify-center px-4 mt-6">
+        <img src="Download.png" alt="Download Image" class="rounded-lg shadow-lg w-full max-w-xl object-contain">
+      </section>
+
+
+       <h1 class="font-bold text-indigo-300 text-[clamp(1.25rem,2.5vw,1.5rem)] sm:text-[clamp(1.75rem,3vw,2rem)]"> Wuthering Waves </h1>
+
+        <div class="flex space-x-4 text-sm sm:text-base">
+          <button id="downloadLink" class="text-indigo-300 hover:text-white font-medium border border-indigo-500 px-3 py-1 rounded transition duration-300 hover:bg-indigo-600">
+            ⬇ Download
+          </button>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- Image -->
+    <section class="max-w-7xl mx-auto px-4 py-4">
+      <img src="Wuwa.jpg" alt="Wuthering Waves" class="w-full h-auto rounded-lg shadow-lg object-cover">
+    </section>
+
+    <!-- Articles -->
+    <main class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 pb-8 max-w-7xl mx-auto">
+      <article class="bg-gray-800 p-5 rounded-lg shadow hover:shadow-lg">
+        <h2 class="text-lg sm:text-xl font-semibold text-indigo-300 mb-2">What is Wuthering Waves?</h2>
+        <p class="text-gray-300 text-sm">>Wuthering Waves is a visually captivating open-world action RPG set in a world ravaged by a mysterious calamity known as the Lament. You awaken as the Rover — a silent, amnesiac protagonist drawn into a land teeming with the remnants of lost civilizations and dangerous anomalies. The game offers a beautifully decayed world to explore, rich with hidden lore, intense boss fights, and fluid, high-speed traversal. Players can engage in stylish combat while uncovering the forgotten truths of the world and their own identity.</p>
+      </article>
+
+      <article class="bg-gray-800 p-5 rounded-lg shadow hover:shadow-lg">
+        <h2 class="text-lg sm:text-xl font-semibold text-indigo-300 mb-2">Featured Character: Rover</h2>
+        <p class="text-gray-300 text-sm">Rover is the central character in Wuthering Waves — a wanderer from beyond who holds the key to the world's salvation or its ruin. Unlike traditional heroes, Rover’s identity and power grow alongside the narrative, shaped by the choices players make and the memories they recover. With the ability to absorb and wield Resonator powers, Rover’s combat style is adaptive, offering dynamic synergy with the party. Their journey is personal, poetic, and intimately tied to the fate of the post-Lament world.</p>
+      </article>
+
+      <article class="bg-gray-800 p-5 rounded-lg shadow hover:shadow-lg">
+        <h2 class="text-lg sm:text-xl font-semibold text-indigo-300 mb-2">Combat & Exploration</h2>
+        <p class="text-gray-300 text-sm"> Wuthering Waves delivers a deeply satisfying gameplay loop combining high-mobility exploration with skill-based combat. Players can double-jump, wall-run, glide, and grapple across vertical environments, giving them complete freedom to traverse a shattered world. Combat is fast, combo-driven, and cinematic — emphasizing precision, timing, and strategy. Each Resonator has unique elemental abilities and stylish animations, encouraging team synergy and creative tactics in battle. The world itself reacts to your presence, creating an immersive experience that evolves as you play.</p>
+      </article>
+
+<!-- Enhanced Gameplay Preview Carousel -->
+<article class="col-span-full bg-gray-800 p-5 rounded-lg shadow hover:shadow-lg relative">
+  <h2 class="text-lg sm:text-xl font-semibold text-indigo-300 mb-4 text-center">Gameplay Preview</h2>
+
+  <!-- Video Container -->
+  <div class="relative max-w-4xl mx-auto">
+   <video id="previewVideo" src="Wuwa1.mp4" controls autoplay muted loop playsinline class="w-full h-auto rounded-lg shadow-lg object-cover transition-all duration-500 mb-2"></video>
+<p id="videoLabel" class="text-center text-indigo-300 font-medium">Music Video</p>
+
+    <!-- Controls like the arrow button for the next video slide -->
+    <div class="absolute top-1/2 -translate-y-1/2 w-full flex justify-between px-4">
+      <button id="prevBtn" class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-2 rounded-full shadow" aria-label="Previous">
+        &#8592;
+      </button>
+      <button id="nextBtn" class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-2 rounded-full shadow" aria-label="Next">
+        &#8594;
+      </button>
+    </div>
+  </div>
+</article>
+
+
+<!-- Character Filter Section -->
+<section class="col-span-full bg-gray-800 p-4 rounded-lg shadow mt-6">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+    
+    <!-- Search Bar -->
+    <div class="flex flex-col">
+      <label for="search" class="text-sm font-medium text-gray-300 mb-1">Search</label>
+      <input
+        type="text"
+        id="search"
+        placeholder="Enter name"
+        class="bg-gray-700 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full"
+      />
+    </div>
+
+    <!-- Elements of wuwa -->
+    <div class="flex flex-col">
+      <label class="text-sm font-medium text-gray-300 mb-1">Element</label>
+      <div class="flex flex-wrap gap-2">
+        <button class="p-1 bg-gray-700 rounded hover:ring-2 hover:ring-indigo-400">
+          <img src="Glacio.png" alt="Ice" class="w-8 h-8" />
+        </button>
+        <button class="p-1 bg-gray-700 rounded hover:ring-2 hover:ring-indigo-400">
+          <img src="Fusion.png" alt="Fire" class="w-8 h-8" />
+        </button>
+        <button class="p-1 bg-gray-700 rounded hover:ring-2 hover:ring-indigo-400">
+          <img src="Electro.png" alt="Electric" class="w-8 h-8" />
+        </button>
+        <button class="p-1 bg-gray-700 rounded hover:ring-2 hover:ring-indigo-400">
+          <img src="Aero.png" alt="Aero" class="w-8 h-8" />
+        </button>
+        <button class="p-1 bg-gray-700 rounded hover:ring-2 hover:ring-indigo-400">
+          <img src="Spectro.png" alt="Geo" class="w-8 h-8" />
+        </button>
+        <button class="p-1 bg-gray-700 rounded hover:ring-2 hover:ring-indigo-400">
+          <img src="Havoc.png" alt="Void" class="w-8 h-8" />
+        </button>
+      </div>
+    </div>
+
+    <!-- Rarity Dropdown of Characters or Resonators -->
+    <div class="flex flex-col">
+      <label for="rarity" class="text-sm font-medium text-gray-300 mb-1">Rarity</label>
+      <select id="rarity" class="bg-gray-700 text-white px-4 py-2 rounded-md w-full">
+        <option>All</option>
+        <option>5★</option>
+        <option>4★</option>
+      </select>
+    </div>
+
+    <!-- Weapon Type Dropdown -->
+    <div class="flex flex-col">
+      <label for="weapon" class="text-sm font-medium text-gray-300 mb-1">Weapon Type</label>
+      <select id="weapon" class="bg-gray-700 text-white px-4 py-2 rounded-md w-full">
+        <option>Any</option>
+        <option>Sword</option>
+        <option>Gun</option>
+        <option>Gauntlets</option>
+        <option>Broadblade</option>
+        <option>Rectifier</option>
+      </select>
+    </div>
+
+  </div>
+</section>
+
+
+
+      <!-- Character Showcase Section -->
+      <section class="col-span-full" id="characterShowcase">
+        <div class="max-w-7xl mx-auto px-4">
+          <h2 class="text-2xl sm:text-3xl font-bold text-indigo-300 mb-4 text-center">Characters</h2>
+
+          <nav class="container mx-auto flex justify-between items-center">
+            <div class="container">
+              <div class="img img1"><span>Shorekeeper</span></div>
+              <div class="img img2"><span>Cantarella</span></div>
+              <div class="img img3"><span>Jinhsi</span></div>
+              <div class="img img4"><span>Cartethyia</span></div>
+            </div>
+          </nav>
+
+          <!-- View All Button -->
+          <div class="text-center mt-4">
+            <button id="viewAllBtn" class="bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-full transition duration-300 shadow-md">
+              View more
+            </button>
+          </div>
+
+          <!-- Hidden Gallery -->
+          <div id="moreGallery" class="hidden-gallery container mt-6 bg-gray-800/50 backdrop-blur-md rounded-xl p-4">
+            <div class="img" style="background-image: url('Yangyang.png');"><span>Yangyang</span></div>
+            <div class="img" style="background-image: url('Roccia.png');"><span>Roccia</span></div>
+            <div class="img" style="background-image: url('Brant.png');"><span>Brant</span></div>
+            <div class="img" style="background-image: url('Youhu.png');"><span>Youhu</span></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-gray-950 text-gray-400 text-center text-sm py-4 mt-4">
+      &copy; 2025 Wuthering Waves.      About us.
+    </footer>
+  </div>
+
+
+
+
+<!-- Download Modal (Centered & Blurred) -->
+<div id="downloadModal" class="fixed inset-0 hidden z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center">
+  <div class="relative bg-transparent w-[90%] sm:w-[70%] md:w-[50%] lg:w-[40%]">
+    <!-- Close button -->
+    <button id="closeModal" class="absolute top-2 right-2 text-white text-2xl font-bold hover:text-gray-300 z-10">✕</button>
+
+    <!-- Centered Image -->
+    <img src="Download.png" alt="Download Image"
+         class="w-full h-auto max-h-[90vh] object-contain rounded-lg shadow-xl border border-indigo-500">
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+  <!-- This is the scripts are located at -->
+
+  <script>
+    //This is where the view the other characters is do not forget me self aghhhh
+    const btn = document.getElementById('viewAllBtn');
+    const gallery = document.getElementById('moreGallery');
+
+    
+
+
+    //This section shows and hides the other characters of wuwa
+    btn.addEventListener('click', () => {
+      const isActive = gallery.classList.contains('active');
+      gallery.classList.toggle('active');
+
+      if (!isActive) {
+        btn.textContent = "View less";
+        btn.classList.replace("bg-gray-700", "bg-indigo-600");
+        btn.classList.replace("hover:bg-gray-600", "hover:bg-indigo-500");
+        setTimeout(() => gallery.scrollIntoView({ behavior: "smooth" }), 100);
+      } else {
+        btn.textContent = "View more";
+        btn.classList.replace("bg-indigo-600", "bg-gray-700");
+        btn.classList.replace("hover:bg-indigo-500", "hover:bg-gray-600");
+        setTimeout(() => btn.scrollIntoView({ behavior: "smooth" }), 100);
+      }
+    });
+
+    // Sidebar video autoplay on hover or touch
+    const sidebar = document.querySelector('.sidebar');
+    const videos = sidebar.querySelectorAll('video');
+
+    function playSidebarVideos() {
+      videos.forEach(video => {
+        if (video.paused) {
+          video.play().catch(() => {});
+        }
+      });
+    }
+
+    sidebar.addEventListener('mouseenter', playSidebarVideos);
+    sidebar.addEventListener('touchstart', playSidebarVideos, { passive: true });
+  </script>
+
+  <script>
+  const previewVideo = document.getElementById("previewVideo");
+  const nextBtn = document.getElementById("nextBtn");
+  const prevBtn = document.getElementById("prevBtn");
+
+
+  // These are the videos shown in the Gameplay Preview
+  const videoSources = [
+    "Wuwa1.mp4", // Music Video
+    "Wuwa5.mp4", // Exploration Tests
+    "Wuwa3.mp4", // Main Quests
+    "Wuwa4.mp4", // Exploration
+  ];
+
+
+  //This is where the click button of the next vid works
+  let currentVideo = 0;
+
+  function updateVideo(index) {
+    previewVideo.pause();
+    previewVideo.src = videoSources[index];
+    previewVideo.load();
+    previewVideo.play().catch(() => {});
+  }
+
+
+
+  // This Rotates through the videos when clicking arrows i wanna make it like how netflix does but cant
+  nextBtn.addEventListener("click", () => {
+    currentVideo = (currentVideo + 1) % videoSources.length;
+    updateVideo(currentVideo);
+  });
+
+  prevBtn.addEventListener("click", () => {
+    currentVideo = (currentVideo - 1 + videoSources.length) % videoSources.length;
+    updateVideo(currentVideo);
+  });
+
+
+
+// This Shows a title under each of the videos
+  const videoLabel = document.getElementById("videoLabel");
+const videoTitles = ["Music Video", "Exploration Test", "Main Quests", "Exploration"];
+
+function updateVideo(index) {
+  previewVideo.pause();
+  previewVideo.src = videoSources[index];
+  previewVideo.load();
+  previewVideo.play().catch(() => {});
+  if (videoLabel) {
+    videoLabel.textContent = videoTitles[index];
+  }
+}
+
+
+
+  // For the scan download
+  const downloadLink = document.getElementById("downloadLink");
+  const downloadModal = document.getElementById("downloadModal");
+  const closeModal = document.getElementById("closeModal");
+
+  // Show modal
+  downloadLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    downloadModal.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+  });
+
+  // Close modal on close button click
+  closeModal.addEventListener("click", () => {
+    downloadModal.classList.add("hidden");
+    document.body.style.overflow = "";
+  });
+
+  // Close modal if clicking outside the modal box
+  downloadModal.addEventListener("click", (e) => {
+    if (e.target === downloadModal) {
+      downloadModal.classList.add("hidden");
+      document.body.style.overflow = "";
+    }
+  });
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
