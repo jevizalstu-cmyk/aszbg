@@ -188,12 +188,12 @@
 
 
 
-
-
-
+<!-- This is where the whole body starts-->
 
 
 <body class="bg-gray-900 text-white font-sans">
+
+
 
   <!-- Sidebar -->
   <aside class="fixed top-0 left-0 h-full bg-slate-800 sidebar overflow-y-auto z-50 group">
@@ -205,12 +205,12 @@
         <span class="opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300">Home</span>
       </a>
 
-<a href="second.html" class="flex items-center space-x-3 hover:bg-slate-700 p-2 rounded w-full">
-  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path d="M8 7V3M16 7V3M3 11h18M5 5h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" />
-  </svg>
-  <span class="opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300">Events</span>
-</a>
+      <a href="second.html" class="flex items-center space-x-3 hover:bg-slate-700 p-2 rounded w-full">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M8 7V3M16 7V3M3 11h18M5 5h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" />
+        </svg>
+        <span class="opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300">Events</span>
+      </a>
 
 
       <section class="w-full px-2 transition duration-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible">
@@ -234,13 +234,17 @@
     </nav>
   </aside>
 
-  <!-- Main Content it's in the top part -->
+
+
+  <!-- Main Content it's in the top part so that it would adjust itself when necessary-->
   <div class="ml-20 md:ml-48 transition-all duration-300">
 <header class="bg-gray-10000 px-4 py-4 shadow md:px-6">
   <div class="flex flex-col sm:flex-row justify-between items-center gap-4 max-w-7x1 mx-auto">
 
 
-      <!-- Hidden Download Image Container -->
+
+    
+      <!-- Hidden Download Image Container, Where once the download button is clicked the QR code will appear-->
       <section id="downloadImageContainer" class="hidden w-full flex justify-center px-4 mt-6">
         <img src="Download.png" alt="Download Image" class="rounded-lg shadow-lg w-full max-w-xl object-contain">
       </section>
@@ -257,12 +261,16 @@
       </div>
     </header>
 
-    <!-- Image -->
+
+
+    <!-- This is the image of shorekeeper is, it is the big one -->
     <section class="max-w-7xl mx-auto px-4 py-4">
       <img src="Wuwa.jpg" alt="Wuthering Waves" class="w-full h-auto rounded-lg shadow-lg object-cover">
     </section>
 
-    <!-- Articles -->
+
+    
+    <!-- This is the Article Section where some details are explained-->
     <main class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 pb-8 max-w-7xl mx-auto">
       <article class="bg-gray-800 p-5 rounded-lg shadow hover:shadow-lg">
         <h2 class="text-lg sm:text-xl font-semibold text-indigo-300 mb-2">What is Wuthering Waves?</h2>
@@ -279,11 +287,11 @@
         <p class="text-gray-300 text-sm"> Wuthering Waves delivers a deeply satisfying gameplay loop combining high-mobility exploration with skill-based combat. Players can double-jump, wall-run, glide, and grapple across vertical environments, giving them complete freedom to traverse a shattered world. Combat is fast, combo-driven, and cinematic — emphasizing precision, timing, and strategy. Each Resonator has unique elemental abilities and stylish animations, encouraging team synergy and creative tactics in battle. The world itself reacts to your presence, creating an immersive experience that evolves as you play.</p>
       </article>
 
-<!-- Enhanced Gameplay Preview Carousel -->
+<!-- This is where the Enhanced Gameplay Preview Carousel is -->
 <article class="col-span-full bg-gray-800 p-5 rounded-lg shadow hover:shadow-lg relative">
   <h2 class="text-lg sm:text-xl font-semibold text-indigo-300 mb-4 text-center">Gameplay Preview</h2>
 
-  <!-- Video Container -->
+  <!-- This is where the Video Container where it shows the first video-->
   <div class="relative max-w-4xl mx-auto">
    <video id="previewVideo" src="Wuwa1.mp4" controls autoplay muted loop playsinline class="w-full h-auto rounded-lg shadow-lg object-cover transition-all duration-500 mb-2"></video>
 <p id="videoLabel" class="text-center text-indigo-300 font-medium">Music Video</p>
@@ -408,10 +416,12 @@
 
 
 
+  <!-- For the download button system -->
 
 <!-- Download Modal (Centered & Blurred) -->
 <div id="downloadModal" class="fixed inset-0 hidden z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center">
   <div class="relative bg-transparent w-[90%] sm:w-[70%] md:w-[50%] lg:w-[40%]">
+
     <!-- Close button -->
     <button id="closeModal" class="absolute top-2 right-2 text-white text-2xl font-bold hover:text-gray-300 z-10">✕</button>
 
@@ -433,7 +443,7 @@
   <!-- This is the scripts are located at -->
 
   <script>
-    //This is where the view the other characters is do not forget me self aghhhh
+    //This is where the view the other characters is, do not forget me self aghhhh
     const btn = document.getElementById('viewAllBtn');
     const gallery = document.getElementById('moreGallery');
 
